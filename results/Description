@@ -1,0 +1,6 @@
+In this folder, results are for following configuration:
+1.  SEL_PERCENT = 0.3 // changed from 0.2 to 0.3
+2.  CV = 15 // chnaged from 5 to 15
+3.  BOX = 0.5 // Here, BOX is a vector of just 1 element (0.01)
+4.  Added musk-1 to datasets
+5.  
