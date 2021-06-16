@@ -49,13 +49,13 @@ POI_RNG = [.01, .025, .05, .075, .1, .125, .15, .175, .2]
 # total number of poisoning levels 
 NPR = len(POI_RNG)
 # percentage of features that we want to select 
-SEL_PERCENT = .2
+SEL_PERCENT = .3
 # number of algorithms that we are going to test [JMI, MIM, MRMR, MIFS, CMIM, DISR, ICAP] or [MIM, MIFS, MRMR, DISR, Relief, Fisher]
 NALG = 6
 # used when we select features 
 FEAT_IDX = 0
 # number of cross validation runs to perform
-CV = 5
+CV = 15
 # seed for reproducibility
 SEED = 1
 # dataset names 
@@ -78,11 +78,11 @@ DATA = [
         'molec-biol-promoter',
         #'spambase',
         #'ozone',
-        #'musk-1',
+        'musk-1',
         # 'musk-2'
         
 ]
-BOX = ['0.5', '1', '2', '5', '10']
+BOX = ['0.5'] #, '1', '2', '5', '10']
 # -----------------------------------------------------------------------
 
 def similarity_based_FS(algo, X, Y, n_selected_features):
@@ -156,8 +156,8 @@ def experiment(data, box, cv, output):
     #data, box, cv, output = 'conn-bench-sonar-mines-rocks', '1', 5, 'results/test.npz'
 
     # load normal and adversarial data 
-    path_adversarial_data = 'Extra_Exp_data/attacks/' + data + '_[xiao][' + box + '].csv'
-    df_normal = pd.read_csv('Extra_Exp_data/clean/' + data + '.csv', header=None).values
+    path_adversarial_data = 'data/attacks/' + data + '_[xiao][' + box + '].csv'
+    df_normal = pd.read_csv('data/clean/' + data + '.csv', header=None).values
     df_adversarial = pd.read_csv(path_adversarial_data, header=None).values
     
     # separate out the normal and adversarial data 
@@ -305,7 +305,7 @@ if __name__ == '__main__':
         for box in BOX: 
             print('Running ' + data + ' - box:' + box)
             #try: 
-            experiment(data, box, CV, 'IEEE/Final_algs/results/' + data + '_[xiao][' + box + ']_results.npz')
+            experiment(data, box, CV, 'results/newconfig/' + data + '_[xiao][' + box + ']_results.npz')
             #except:
             #    print(' ... ERROR ...')
 
