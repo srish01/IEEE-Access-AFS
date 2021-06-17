@@ -26,3 +26,6 @@ data folder contains bunch of UCI datasets, from which 5 datasets were used in t
 5. twonorm
 
 This folder has clean and adversarial data
+
+#### scripts:
+This folder contains script to generate LASSO attacks by Xiao et al. [https://arxiv.org/pdf/1804.07933.pdf]
